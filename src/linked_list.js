@@ -23,6 +23,8 @@ LinkedList.prototype.append = function(val) {
     this.tail.next = node;
     this.tail = this.tail.next;
   }
+
+  return this;
 }
 
 LinkedList.prototype.delete = function(val) {
@@ -55,6 +57,42 @@ LinkedList.prototype.delete = function(val) {
   }
 
   return deletedNode;
+}
+
+LinkedList.prototype.find = function(val) {
+  var foundNode = null;
+
+  var currentNode = this.head;
+
+  if (currentNode) {
+    while (currentNode) {
+      if (val.value === currentNode.value) {
+        foundNode = currentNode;
+      }
+      currentNode = currentNode.next;
+    }
+  }
+
+  return foundNode;
+}
+
+LinkedList.prototype.fromArray = function(arr) {
+  this._reset();
+  var currentNode;
+  for(var i = 0; i< arr.length; i++ ){
+    if (i === 0) {
+      currentNode = new LinkedListNode(arr[i]);
+      this.head = currentNode;
+    } else {
+      var newNode = new LinkedListNode(arr[i]);
+      currentNode.next = newNode;
+      currentNode = newNode;
+    }
+  }
+
+  this.tail = currentNode;
+
+  return this;
 }
 
 LinkedList.prototype.deleteTail = function() {
