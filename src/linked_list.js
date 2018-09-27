@@ -57,6 +57,47 @@ LinkedList.prototype.delete = function(val) {
   return deletedNode;
 }
 
+LinkedList.prototype.deleteTail = function() {
+  var deletedNode = this.tail;
+  if (this.tail && this.head === this.tail) {
+    this._reset();
+
+    return deletedNode;
+  }
+  var currentNode = this.head;
+
+  if (currentNode) {
+    while (currentNode.next.next) {
+      currentNode = currentNode.next;
+    }
+    deletedNode = currentNode.next;
+    currentNode.next = null;
+
+    this.tail = currentNode;
+  }
+
+  return deletedNode;
+}
+
+LinkedList.prototype._reset = function() {
+  this.head = null;
+  this.tail = null;
+}
+
+LinkedList.prototype.deleteHead = function() {
+  var deletedNode = this.head;
+  if (this.head && this.head === this.tail) {
+    this._reset();
+    return deletedNode;
+  }
+
+  if (this.head) {
+    this.head = this.head.next;
+  }
+
+  return deletedNode;
+}
+
 LinkedList.prototype.prepend = function(val) {
   if (!this.head) {
     this.head = new LinkedListNode(val);

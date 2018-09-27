@@ -127,5 +127,62 @@ describe('linked_list', function(){
       expect(linkedList.toString()).toBe('');
     });
 
+    it('should delete linked list tail', function() {
+      const linkedList = new LinkedList();
+
+      linkedList.append(1);
+      linkedList.append(2);
+      linkedList.append(3);
+
+      expect(linkedList.head.toString()).toBe('1');
+      expect(linkedList.tail.toString()).toBe('3');
+
+      const deletedNode1 = linkedList.deleteTail();
+
+      expect(deletedNode1.value).toBe(3);
+      expect(linkedList.toString()).toBe('1,2');
+      expect(linkedList.head.toString()).toBe('1');
+      expect(linkedList.tail.toString()).toBe('2');
+
+      const deletedNode2 = linkedList.deleteTail();
+
+      expect(deletedNode2.value).toBe(2);
+      expect(linkedList.toString()).toBe('1');
+      expect(linkedList.head.toString()).toBe('1');
+      expect(linkedList.tail.toString()).toBe('1');
+
+      const deletedNode3 = linkedList.deleteTail();
+
+      expect(deletedNode3.value).toBe(1);
+      expect(linkedList.toString()).toBe('');
+      expect(linkedList.head).toBeNull();
+      expect(linkedList.tail).toBeNull();
+    });
+
+    it('should delete linked list head', function() {
+      const linkedList = new LinkedList();
+
+      expect(linkedList.deleteHead()).toBeNull();
+
+      linkedList.append(1);
+      linkedList.append(2);
+
+      expect(linkedList.head.toString()).toBe('1');
+      expect(linkedList.tail.toString()).toBe('2');
+
+      const deletedNode1 = linkedList.deleteHead();
+
+      expect(deletedNode1.value).toBe(1);
+      expect(linkedList.toString()).toBe('2');
+      expect(linkedList.head.toString()).toBe('2');
+      expect(linkedList.tail.toString()).toBe('2');
+
+      const deletedNode2 = linkedList.deleteHead();
+
+      expect(deletedNode2.value).toBe(2);
+      expect(linkedList.toString()).toBe('');
+      expect(linkedList.head).toBeNull();
+      expect(linkedList.tail).toBeNull();
+    });
   });
 });
