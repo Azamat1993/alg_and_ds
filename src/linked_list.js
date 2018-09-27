@@ -16,11 +16,10 @@ LinkedList.prototype.toString = function() {
 }
 
 LinkedList.prototype.append = function(val) {
+  var node = new LinkedListNode(val);
   if (!this.head) {
-    this.head = new LinkedListNode(val);
-    this.tail = this.head;
+    this.head = this.tail = node;
   } else {
-    var node = new LinkedListNode(val);
     this.tail.next = node;
     this.tail = this.tail.next;
   }
