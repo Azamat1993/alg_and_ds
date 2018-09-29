@@ -3,12 +3,16 @@ function LinkedList() {
   this.head = null;
 }
 
-LinkedList.prototype.toString = function() {
+LinkedList.prototype.toString = function(customStringifier) {
   var res = [];
   if (this.head) {
     var pointer = this.head;
     while (pointer) {
-      res.push(pointer.value);
+      if (customStringifier) {
+        res.push(customStringifier(pointer.value));
+      } else {
+        res.push(pointer.value);
+      }
       pointer = pointer.next;
     }
   }
@@ -66,8 +70,14 @@ LinkedList.prototype.find = function(val) {
 
   if (currentNode) {
     while (currentNode) {
-      if (val.value === currentNode.value) {
-        foundNode = currentNode;
+      if (val.callback) {
+        if (val.callback(currentNode.value)) {
+          foundNode = currentNode;
+        }
+      } else {
+        if (val.value === currentNode.value) {
+          foundNode = currentNode;
+        }
       }
       currentNode = currentNode.next;
     }

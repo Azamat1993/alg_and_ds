@@ -1,7 +1,7 @@
 var HashTable = require('../src/hash_table').HashTable;
 
-describe('HashTable', function() {
-   fit('should create hash table of certain size', function() {
+xdescribe('HashTable', function() {
+   it('should create hash table of certain size', function() {
      const defaultHashTable = new HashTable();
      expect(defaultHashTable.buckets.length).toBe(32);
 
@@ -9,7 +9,7 @@ describe('HashTable', function() {
      expect(biggerHashTable.buckets.length).toBe(64);
    });
 
-   fit('should generate proper hash for specified keys', function() {
+   it('should generate proper hash for specified keys', function() {
      const hashTable = new HashTable();
 
      expect(hashTable.hash('a')).toBe(1);
@@ -17,7 +17,7 @@ describe('HashTable', function() {
      expect(hashTable.hash('abc')).toBe(6);
    });
 
-   fit('should set, read and delete data with collisions', function() {
+   it('should set, read and delete data with collisions', function() {
      const hashTable = new HashTable(3);
 
      expect(hashTable.hash('a')).toBe(1);

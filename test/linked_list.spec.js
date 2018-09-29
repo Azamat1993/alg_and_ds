@@ -81,6 +81,23 @@ describe('linked_list', function(){
       expect(linkedList.toString()).toBe('3,2,1');
     });
 
+    it('should be possible to store objects in the list and to print them out', function() {
+      const linkedList = new LinkedList();
+
+      const nodeValue1 = { value: 1, key: 'key1' };
+      const nodeValue2 = { value: 2, key: 'key2' };
+
+      linkedList
+        .append(nodeValue1)
+        .prepend(nodeValue2);
+
+      const nodeStringifier = function(value){
+        return value.key + ':' + value.value;
+      }
+
+      expect(linkedList.toString(nodeStringifier)).toBe('key2:2,key1:1');
+    });
+
     it('should delete node by value from linked list', function() {
       const linkedList = new LinkedList();
 
@@ -224,6 +241,22 @@ describe('linked_list', function(){
 
       expect(node.value).toBe(2);
       expect(linkedList.find({ value: 5 })).toBeNull();
+    });
+
+    it('should find node by callback', function() {
+      const linkedList = new LinkedList();
+
+      linkedList
+        .append({ value: 1, key: 'test1' })
+        .append({ value: 2, key: 'test2' })
+        .append({ value: 3, key: 'test3' });
+
+      const node = linkedList.find({ callback: function(value) { return value.key === 'test2'; }});
+
+      expect(node).toBeDefined();
+      expect(node.value.value).toBe(2);
+      expect(node.value.key).toBe('test2');
+      expect(linkedList.find({ callback: function(value) { return value.key === 'test5'; }})).toBeNull();
     });
 
     it('should create linked list from array', function() {
