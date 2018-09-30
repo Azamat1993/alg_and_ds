@@ -1,7 +1,7 @@
 var BinaryTreeNode = require('../src/binary_tree').BinaryTreeNode;
 
-describe('BinaryTreeNode', function(){
-  fit('should create node', function() {
+xdescribe('BinaryTreeNode', function(){
+  it('should create node', function() {
    const node = new BinaryTreeNode();
 
    expect(node).toBeDefined();
@@ -22,7 +22,7 @@ describe('BinaryTreeNode', function(){
    expect(rootNode.right.value).toBe(3);
  });
 
- fit('should set parent', function() {
+ it('should set parent', function() {
    const leftNode = new BinaryTreeNode(1);
    const rightNode = new BinaryTreeNode(3);
    const rootNode = new BinaryTreeNode(2);
@@ -36,7 +36,7 @@ describe('BinaryTreeNode', function(){
    expect(rootNode.right.parent).toEqual(rootNode);
  });
 
- fit('should traverse node', function() {
+ it('should traverse node', function() {
    const leftNode = new BinaryTreeNode(1);
    const rightNode = new BinaryTreeNode(3);
    const rootNode = new BinaryTreeNode(2);
@@ -49,7 +49,7 @@ describe('BinaryTreeNode', function(){
    expect(rootNode.toString()).toBe('1,2,3');
  });
 
- fit('should remove child node', function() {
+ it('should remove child node', function() {
    const leftNode = new BinaryTreeNode(1);
    const rightNode = new BinaryTreeNode(3);
    const rootNode = new BinaryTreeNode(2);
@@ -101,7 +101,7 @@ describe('BinaryTreeNode', function(){
    expect(rootNode.replaceChild(new BinaryTreeNode(), new BinaryTreeNode())).toBe(false);
  });
 
- fit('should calculate node height', function() {
+ it('should calculate node height', function() {
    const root = new BinaryTreeNode(1);
    const left = new BinaryTreeNode(3);
    const right = new BinaryTreeNode(2);
