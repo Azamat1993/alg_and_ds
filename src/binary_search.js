@@ -1,19 +1,17 @@
 function binarySearch(sortedArr, ch, comparator) {
   comparator = comparator || simpleComparator;
 
-  var startIndex = 0;
-  var endIndex = sortedArr.length - 1;
+  var start = 0, end = sortedArr.length - 1;
 
-  while (startIndex <= endIndex) {
-    var middle = startIndex + Math.floor(((endIndex - startIndex) / 2));
+  while (start <= end) {
+    var middle = Math.floor((start + end) /2);
     var compare = comparator(sortedArr[middle], ch);
-
     if (compare === 0) {
       return middle;
-    } else if (compare < 0) {
-      startIndex = middle + 1;
+    } else  if (compare > 0) {
+      end = middle - 1;
     } else {
-      endIndex = middle - 1;
+      start = middle + 1;
     }
   }
 
