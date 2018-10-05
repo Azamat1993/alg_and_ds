@@ -1,6 +1,6 @@
 var BinaryTreeNode = require('../src/binary_tree').BinaryTreeNode;
 
-xdescribe('BinaryTreeNode', function(){
+describe('BinaryTreeNode', function(){
   it('should create node', function() {
    const node = new BinaryTreeNode();
 
@@ -190,7 +190,7 @@ xdescribe('BinaryTreeNode', function(){
    expect(node2.toString()).toBe('[object Object]');
  });
 
- it('should be possible to attach meta information to the node', function() {
+ xit('should be possible to attach meta information to the node', function() {
    const redNode = new BinaryTreeNode(1);
    const blackNode = new BinaryTreeNode(2);
 
@@ -261,7 +261,7 @@ xdescribe('BinaryTreeNode', function(){
    expect(node.value).toBe('new_value');
  });
 
- it('should be possible to copy node', function() {
+ xit('should be possible to copy node', function() {
    const root = new BinaryTreeNode('root');
    const left = new BinaryTreeNode('left');
    const right = new BinaryTreeNode('right');
