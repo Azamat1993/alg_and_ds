@@ -11,13 +11,13 @@ BinarySearchTreeNode.prototype.insert = function(val) {
   } else {
     if (val < this.value) {
       if (!this.left) {
-        returnTree = this.left = new BinarySearchTreeNode(val);
+        returnTree = this.left = new this.constructor(val);
       } else {
         this.left.insert(val);
       }
     } else if (this.value < val) {
       if (!this.right) {
-        returnTree = this.right = new BinarySearchTreeNode(val);
+        returnTree = this.right = new this.constructor(val);
       } else {
         this.right.insert(val);
       }

@@ -214,36 +214,36 @@ describe('BinarySearchTreeNode', function (){
     expect(removeNotExistingElementFromTree).toThrow();
   });
 
-  // fit('should be possible to use objects as node values', function (){
-  //   const nodeValueComparatorCallback = function(a, b) {
-  //     const normalizedA = a || { value: null };
-  //     const normalizedB = b || { value: null };
-  //
-  //     if (normalizedA.value === normalizedB.value) {
-  //       return 0;
-  //     }
-  //
-  //     return normalizedA.value < normalizedB.value ? -1 : 1;
-  //   };
-  //
-  //   const obj1 = { key: 'obj1', value: 1, toString: function (){ return 'obj1'; };
-  //   const obj2 = { key: 'obj2', value: 2, toString: function (){ return 'obj2'; };
-  //   const obj3 = { key: 'obj3', value: 3, toString: function (){ return 'obj3'; };
-  //
-  //   const bstNode = new BinarySearchTreeNode(obj2, nodeValueComparatorCallback);
-  //   bstNode.insert(obj1);
-  //
-  //   expect(bstNode.toString()).toBe('obj1,obj2');
-  //   expect(bstNode.contains(obj1)).toBe(true);
-  //   expect(bstNode.contains(obj3)).toBe(false);
-  //
-  //   bstNode.insert(obj3);
-  //
-  //   expect(bstNode.toString()).toBe('obj1,obj2,obj3');
-  //   expect(bstNode.contains(obj3)).toBe(true);
-  //
-  //   expect(bstNode.findMin().value).toEqual(obj1);
-  // });
+  it('should be possible to use objects as node values', function (){
+    const nodeValueComparatorCallback = function(a, b) {
+      const normalizedA = a || { value: null };
+      const normalizedB = b || { value: null };
+
+      if (normalizedA.value === normalizedB.value) {
+        return 0;
+      }
+
+      return normalizedA.value < normalizedB.value ? -1 : 1;
+    };
+
+    const obj1 = { key: 'obj1', value: 1, toString: function (){ return 'obj1'; }};
+    const obj2 = { key: 'obj2', value: 2, toString: function (){ return 'obj2'; }};
+    const obj3 = { key: 'obj3', value: 3, toString: function (){ return 'obj3'; }};
+
+    const bstNode = new BinarySearchTreeNode(obj2, nodeValueComparatorCallback);
+    bstNode.insert(obj1);
+
+    expect(bstNode.toString()).toBe('obj1,obj2');
+    expect(bstNode.contains(obj1)).toBe(true);
+    expect(bstNode.contains(obj3)).toBe(false);
+
+    bstNode.insert(obj3);
+
+    expect(bstNode.toString()).toBe('obj1,obj2,obj3');
+    expect(bstNode.contains(obj3)).toBe(true);
+
+    expect(bstNode.findMin().value).toEqual(obj1);
+  });
 
   xit('should abandon removed node', function (){
     const rootNode = new BinarySearchTreeNode('foo');
