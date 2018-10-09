@@ -1,8 +1,6 @@
 function pascalTriangle(n) {
   if (n === 0) {
     return [1]
-  } else if (n === 1) {
-    return [1, 1];
   } else {
     var res = new Array(n + 1);
     res[0] = res[n] = 1;
