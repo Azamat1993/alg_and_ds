@@ -23,15 +23,14 @@ function constructMatches(str) {
   var res = new Array(str.length), i = 1, j = 0;
   res[0] = 0;
   while (i < str.length) {
+    if (str[i] !== str[j]) {
+      j = j >= 1 ? res[j-1] : 0;
+    }
+
     if (str[i] === str[j]) {
       res[i++] = ++j;
     } else {
-      j = j >= 1 ? res[j-1] : 0;
-      if (str[i] === str[j]) {
-        res[i++] = ++j;
-      } else {
-        res[i++] = j;
-      }
+      res[i++] = j;
     }
   }
 
