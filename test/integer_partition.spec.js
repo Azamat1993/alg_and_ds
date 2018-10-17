@@ -1,6 +1,6 @@
 var integerPartition = require('../src/integer_partition');
 
-fdescribe('integerPartition', function() {
+describe('integerPartition', function() {
   it('should partition the number', function() {
     expect(integerPartition(1)).toBe(1);
     expect(integerPartition(2)).toBe(2);
