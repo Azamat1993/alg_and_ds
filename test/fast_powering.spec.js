@@ -1,6 +1,6 @@
 var fastPowering = require('../src/fast_powering');
 
-fdescribe('fastPowering', function() {
+describe('fastPowering', function() {
   it('should compute power in log(n) time', function() {
     expect(fastPowering(1, 1)).toBe(1);
     expect(fastPowering(2, 0)).toBe(1);
