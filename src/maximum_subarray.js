@@ -33,14 +33,9 @@ function maximumSubarray(arr) {
   }
 
   var res = [];
-  for(var i = max.index; i >= 0; i--) {
-    if (redIndex > i && redIndex <= max.index) {
-      break;
-    }
+  for(var i = max.index; i >= (redIndex <= max.index ? redIndex : 0); i--) {
     res.unshift(arr[i]);
   }
-
-  console.log(redIndex, max);
 
   return res;
 }
