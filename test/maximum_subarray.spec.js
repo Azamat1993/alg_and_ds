@@ -1,6 +1,6 @@
 var maximumSubarray = require('../src/maximum_subarray');
 
-fdescribe('dpMaximumSubarray', function() {
+describe('dpMaximumSubarray', function() {
   it('should find maximum subarray using dynamic programming algorithm', function() {
     expect(maximumSubarray([])).toEqual([]);
     expect(maximumSubarray([0, 0])).toEqual([0]);
