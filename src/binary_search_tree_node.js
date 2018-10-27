@@ -12,12 +12,20 @@ BinarySearchTreeNode.prototype.insert = function(val) {
     if (val < this.value) {
       if (!this.left) {
         returnTree = this.left = new this.constructor(val);
+
+        if (returnTree) {
+          this.left.parent = this;
+        }
       } else {
         this.left.insert(val);
       }
     } else if (this.value < val) {
       if (!this.right) {
         returnTree = this.right = new this.constructor(val);
+
+        if (returnTree) {
+          this.right.parent = this;
+        }
       } else {
         this.right.insert(val);
       }

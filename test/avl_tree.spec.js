@@ -1,7 +1,7 @@
 var AvlTree = require('../src/avl_tree');
 
-xdescribe('AvlTree', function() {
-  it('should do simple left-left rotation', function() {
+fdescribe('AvlTree', function() {
+  fit('should do simple left-left rotation', function() {
     const tree = new AvlTree();
 
     tree.insert(4);
@@ -26,7 +26,7 @@ xdescribe('AvlTree', function() {
     expect(tree.root.height).toBe(2);
   });
 
-  it('should do complex left-left rotation', function() {
+  fit('should do complex left-left rotation', function() {
     const tree = new AvlTree();
 
     tree.insert(30);
@@ -49,7 +49,7 @@ xdescribe('AvlTree', function() {
     expect(tree.toString()).toBe('5,10,20,25,30,40');
   });
 
-  it('should do simple right-right rotation', function() {
+  fit('should do simple right-right rotation', function() {
     const tree = new AvlTree();
 
     tree.insert(2);
@@ -74,7 +74,7 @@ xdescribe('AvlTree', function() {
     expect(tree.root.height).toBe(2);
   });
 
-  it('should do complex right-right rotation', function() {
+  fit('should do complex right-right rotation', function() {
     const tree = new AvlTree();
 
     tree.insert(30);

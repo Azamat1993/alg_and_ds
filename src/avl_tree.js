@@ -9,12 +9,53 @@ function AvlTree() {
 extend(AvlTree, BinarySearchTreeNode);
 
 AvlTree.prototype.insert = function(val) {
-  this.root = this.root;
-  this.__super__.prototype.insert.call(this, val);
-
+  this.__super__.prototype.insert.call(this.root, val);
   if (this.balanceFactor > 1) {
-    this.rightRotation(this);
+    this.rightRightRotate(this);
+  } else if (this.balanceFactor < -1) {
+    this.leftLeftRotate(this);
   }
+}
+
+AvlTree.prototype.leftLeftRotate = function(node) {
+  var newRoot = node.right;
+  node.right = newRoot.left;
+  newRoot.left = node;
+
+  if (node.parent) {
+    node.parent.right = newRoot;
+  }
+
+  this.root = newRoot;
+}
+
+AvlTree.prototype.rightRightRotate = function(root) {
+    var newRoot = root.left;
+    root.left = newRoot.right;
+    newRoot.right = root;
+
+    if (root.parent) {
+      root.parent.left = newRoot;
+    }
+
+    this.root = newRoot;
+}
+
+AvlTree.prototype.traverseInOrder = function() {
+  var res = [];
+  function traverseNodes(node) {
+    if (node.left !== null) {
+      traverseNodes(node.left)
+    }
+    res.push(node.value);
+
+    if (node.right !== null) {
+      traverseNodes(node.right);
+    }
+  }
+  traverseNodes(this.root);
+
+  return res;
 }
 
 Object.defineProperty(AvlTree.prototype, 'height', {
