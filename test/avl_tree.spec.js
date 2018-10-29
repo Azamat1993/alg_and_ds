@@ -97,7 +97,7 @@ fdescribe('AvlTree', function() {
     expect(tree.toString()).toBe('20,30,35,40,50,55');
   });
 
-  it('should do left-right rotation', function() {
+  fit('should do left-right rotation', function() {
     const tree = new AvlTree();
 
     tree.insert(30);
@@ -109,7 +109,7 @@ fdescribe('AvlTree', function() {
     expect(tree.toString()).toBe('20,25,30');
   });
 
-  it('should do right-left rotation', function() {
+  fit('should do right-left rotation', function() {
     const tree = new AvlTree();
 
     tree.insert(30);
@@ -121,7 +121,7 @@ fdescribe('AvlTree', function() {
     expect(tree.toString()).toBe('30,35,40');
   });
 
-  it('should create balanced tree: case #1', function() {
+  fit('should create balanced tree: case #1', function() {
     // @see: https://www.youtube.com/watch?v=rbg7Qf8GkQ4&t=839s
     const tree = new AvlTree();
 

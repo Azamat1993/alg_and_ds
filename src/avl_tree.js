@@ -9,13 +9,61 @@ function AvlTree() {
 extend(AvlTree, BinarySearchTreeNode);
 
 AvlTree.prototype.insert = function(val) {
-  this.__super__.prototype.insert.call(this.root, val);
+  var node = this.__super__.prototype.insert.call(this.root, val);
   if (this.balanceFactor > 1) {
-    this.rightRightRotate(this);
+    // left
+    if (!this.left.left) {
+      // left - right
+      this.leftRightRotate(this);
+    } else if (!this.left.right) {
+      // left left
+      this.rightRightRotate(this);
+    } else {
+      if (this.left.left.balanceFactor > this.left.right.balanceFactor) {
+        // left left
+        this.rightRightRotate(this);
+      } else {
+        // left - right
+      }
+    }
   } else if (this.balanceFactor < -1) {
-    this.leftLeftRotate(this);
+    // right
+
+    if (!this.right.left) {
+      this.leftLeftRotate(this);
+    } else if (!this.right.right) {
+      this.rightLeftRotate(this);
+    } else {
+      if (this.right.left.balanceFactor < this.right.right.balanceFactor) {
+
+      } else {
+        this.leftLeftRotate(this);
+      }
+    }
   }
 }
+
+AvlTree.prototype.leftRightRotate = function(node) {
+  var rightNode = node.left.right;
+  var leftNode = node.left;
+  node.left = rightNode;
+  rightNode.left = leftNode;
+  leftNode.right = null;
+
+  this.rightRightRotate(node);
+}
+
+AvlTree.prototype.rightLeftRotate = function(node) {
+  var leftNode = node.right.left;
+  var rightNode = node.right;
+
+  node.right = leftNode;
+  leftNode.right = rightNode;
+  rightNode.left  = null;
+
+  this.leftLeftRotate(node);
+}
+
 
 AvlTree.prototype.leftLeftRotate = function(node) {
   var newRoot = node.right;
