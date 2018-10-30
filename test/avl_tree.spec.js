@@ -1,7 +1,7 @@
 var AvlTree = require('../src/avl_tree');
 
-fdescribe('AvlTree', function() {
-  fit('should do simple left-left rotation', function() {
+describe('AvlTree', function() {
+  it('should do simple left-left rotation', function() {
     const tree = new AvlTree();
 
     tree.insert(4);
@@ -26,7 +26,7 @@ fdescribe('AvlTree', function() {
     expect(tree.root.height).toBe(2);
   });
 
-  fit('should do complex left-left rotation', function() {
+  it('should do complex left-left rotation', function() {
     const tree = new AvlTree();
 
     tree.insert(30);
@@ -49,7 +49,7 @@ fdescribe('AvlTree', function() {
     expect(tree.toString()).toBe('5,10,20,25,30,40');
   });
 
-  fit('should do simple right-right rotation', function() {
+  it('should do simple right-right rotation', function() {
     const tree = new AvlTree();
 
     tree.insert(2);
@@ -74,7 +74,7 @@ fdescribe('AvlTree', function() {
     expect(tree.root.height).toBe(2);
   });
 
-  fit('should do complex right-right rotation', function() {
+  it('should do complex right-right rotation', function() {
     const tree = new AvlTree();
 
     tree.insert(30);
@@ -97,7 +97,7 @@ fdescribe('AvlTree', function() {
     expect(tree.toString()).toBe('20,30,35,40,50,55');
   });
 
-  fit('should do left-right rotation', function() {
+  it('should do left-right rotation', function() {
     const tree = new AvlTree();
 
     tree.insert(30);
@@ -109,7 +109,7 @@ fdescribe('AvlTree', function() {
     expect(tree.toString()).toBe('20,25,30');
   });
 
-  fit('should do right-left rotation', function() {
+  it('should do right-left rotation', function() {
     const tree = new AvlTree();
 
     tree.insert(30);
@@ -121,7 +121,7 @@ fdescribe('AvlTree', function() {
     expect(tree.toString()).toBe('30,35,40');
   });
 
-  fit('should create balanced tree: case #1', function() {
+  it('should create balanced tree: case #1', function() {
     // @see: https://www.youtube.com/watch?v=rbg7Qf8GkQ4&t=839s
     const tree = new AvlTree();
 
