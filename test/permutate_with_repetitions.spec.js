@@ -1,7 +1,7 @@
 var permutateWithRepetitions =require('../src/permutate_with_repetitions');
 
 describe('permutateWithRepetitions', function() {
-  fit('should permutate string with repetition', function() {
+  it('should permutate string with repetition', function() {
     const permutations1 = permutateWithRepetitions(['A']);
     expect(permutations1).toEqual([
       ['A'],
